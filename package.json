@@ -1,0 +1,38 @@
+{
+  "name": "vuetify-datetime",
+  "version": "0.1.0",
+  "description": "Simple Datetime component to vuetify.",
+  "author": {
+    "name": "Juarez Nasato",
+    "email": "juareznasato@gmail.com"
+  },
+  "keywords": [
+    "vuejs",
+    "vuetify",
+    "v-text-field",
+    "datetime",
+    "millisecond"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/juareznasato/vuetify-date.git"
+  },
+  "private": false,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "core-js": "^2.6.5",
+    "moment": "^2.24.0",
+    "vue": "^2.6.10",
+    "vuetify": "^1.5.14"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "readmeFilename": "README.md",
+  "main": "index.js"
+}
