@@ -1,7 +1,7 @@
 {
   "name": "vuetify-datetime",
   "version": "0.1.0",
-  "description": "Simple Datetime component to vuetify.",
+  "description": "Simple DateTime component to vuetify.",
   "author": {
     "name": "Juarez Nasato",
     "email": "juareznasato@gmail.com"
@@ -15,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/juareznasato/vuetify-date.git"
+    "url": "https://github.com/juareznasato/vuetify-datetime.git"
   },
   "private": false,
   "scripts": {

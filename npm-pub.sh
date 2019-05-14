@@ -28,7 +28,7 @@ echo
 echo "Copiando arquivos...";
 cp package.json npm;
 cp README.md npm;
-cp src/components/VuetifyDate.vue npm;
+cp src/components/VuetifyDateTime.vue npm;
 echo "Copiado.";
 if [ $1 = "-pk" ];
 then
