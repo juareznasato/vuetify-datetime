@@ -19,8 +19,6 @@
             slot="activator"
             prepend-icon="event"
           ></v-text-field>
-
-
           <v-tabs color="grey lighten-2" slider-color="cyan" v-model="activeTab">
             <v-tab v-bind:key="0" ripple>{{ config.tabDateTitle }}</v-tab>
             <v-tab v-bind:key="1" ripple>{{ config.tabTimeTitle }}</v-tab>
@@ -37,17 +35,20 @@
               </v-tab-item>
               <v-tab-item v-bind:key="1">
                 <v-card flat>
-                  <v-time-picker v-model="time" @change="menuTime = false" format="24hr" landscape></v-time-picker>
+                  <v-time-picker v-model="modTime" @change="(menu = false), emit()" format="24hr" landscape></v-time-picker>
                 </v-card>
               </v-tab-item>
             </v-tabs-items>
           </v-tabs>
-
-
-
         </v-menu>
       </v-flex>
     </v-layout>
+    modFormattedDate {{ modFormattedDate }}
+    <br>
+    modDate {{ modDate }}
+    <br>
+    modTime {{ modTime }}
+    <br>
   </div>
 </template>
 
@@ -68,14 +69,20 @@ export default {
     config: {
       type: Object,
       default: function() {
-        return { tabDateTitle: "Data", tabTimeTitle: "Hora", locale: "pt-BR", format: "DD/MM/YYYY", clearable: false };
+        return {
+          tabDateTitle: "Data",
+          tabTimeTitle: "Hora",
+          locale: "pt-BR",
+          format: "DD/MM/YYYY",
+          clearable: false
+        };
       }
     }
   },
   data: () => ({
     modDate: "",
-    modDateFormatted: "",
-    time: "00:00:00",
+    modFormattedDate: "",
+    modTime: "00:00",
     menu: false,
     readonly: true,
     activeTab: 0
@@ -84,23 +91,22 @@ export default {
     compShow: {
       get: function() {
         const THIS = this;
-        return this.value
-          ? (THIS.modDateFormatted = moment(new Date(this.value)).format(
-              this.config.format
-            ))
-          : null;
+        let mdf = this.value ? (THIS.modFormattedDate = moment(new Date(this.value)).format(this.config.format)) : "";
+        let mt = this.value ? (THIS.modTime = moment(new Date(this.value)).format("HH:mm")) : "";
+        return mdf + " " + mt;
       },
       set: function() {
         const THIS = this;
         THIS.modDate = null;
-        THIS.modDateFormatted = null;
+        THIS.modTime = "00:00";
+        THIS.modFormattedDate = null;
         this.$emit("input", null);
       }
     }
   },
   watch: {
-    // When computed.compShow.modDateFormatted is changed:
-    modDateFormatted() {
+    // When computed.compShow.modFormattedDate is changed:
+    modFormattedDate() {
       return this.value
         ? (this.modDate = moment(new Date(this.value)).format("YYYY-MM-DD"))
         : null;
@@ -108,7 +114,7 @@ export default {
   },
   methods: {
     emit() {
-      this.$emit("input", this.stringToMillisecond(this.modDate, this.time));
+      this.$emit("input", this.stringToMillisecond(this.modDate, this.modTime));
     },
     stringToMillisecond: function(date, time) {
       return Date.parse(date + " " + time);
