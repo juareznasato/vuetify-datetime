@@ -9,9 +9,6 @@
           lazy
           transition="scale-transition"
           offset-y
-          full-width
-          max-width="290"
-          min-width="290px"
           data-app="true"
         >
           <v-text-field
@@ -22,12 +19,32 @@
             slot="activator"
             prepend-icon="event"
           ></v-text-field>
-          <v-date-picker
-            v-model="modDate"
-            v-on:input="(menu = false), emit()"
-            v-bind:locale="config.locale"
-            no-title
-          ></v-date-picker>
+
+
+          <v-tabs color="grey lighten-2" slider-color="cyan" v-model="activeTab">
+            <v-tab v-bind:key="0" ripple>{{ config.tabDateTitle }}</v-tab>
+            <v-tab v-bind:key="1" ripple>{{ config.tabTimeTitle }}</v-tab>
+            <v-tabs-items>
+              <v-tab-item v-bind:key="0">
+                <v-card flat style="overflow: auto">
+                  <v-date-picker
+                    v-model="modDate"
+                    v-on:input="(menu = false), emit()"
+                    v-bind:locale="config.locale"
+                    no-title
+                  ></v-date-picker>
+                </v-card>
+              </v-tab-item>
+              <v-tab-item v-bind:key="1">
+                <v-card flat>
+                  <v-time-picker v-model="time" @change="menuTime = false" format="24hr" landscape></v-time-picker>
+                </v-card>
+              </v-tab-item>
+            </v-tabs-items>
+          </v-tabs>
+
+
+
         </v-menu>
       </v-flex>
     </v-layout>
@@ -51,7 +68,7 @@ export default {
     config: {
       type: Object,
       default: function() {
-        return { locale: "pt-BR", format: "DD/MM/YYYY", clearable: false };
+        return { tabDateTitle: "Data", tabTimeTitle: "Hora", locale: "pt-BR", format: "DD/MM/YYYY", clearable: false };
       }
     }
   },
@@ -60,7 +77,8 @@ export default {
     modDateFormatted: "",
     time: "00:00:00",
     menu: false,
-    readonly: true
+    readonly: true,
+    activeTab: 0
   }),
   computed: {
     compShow: {
