@@ -24,6 +24,8 @@ export default {
       tabTimeTitle: "Hora",
       locale: "pt-BR",
       format: "DD/MM/YYYY",
+      icon: "event",
+      closeOnDatePicker: true,
       clearable: true
     }
   })

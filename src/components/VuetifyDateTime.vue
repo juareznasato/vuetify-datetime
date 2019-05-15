@@ -6,18 +6,18 @@
           v-model="menu"
           v-bind:close-on-content-click="false"
           v-bind:nudge-right="40"
-          lazy
           transition="scale-transition"
-          offset-y
           data-app="true"
+          offset-y
+          lazy
         >
           <v-text-field
             v-model="compShow"
             v-bind:readonly="readonly"
             v-bind:clearable="config.clearable"
             v-bind:label="label"
+            v-bind:prepend-icon="config.icon"
             slot="activator"
-            prepend-icon="event"
           ></v-text-field>
           <v-tabs color="grey lighten-2" slider-color="cyan" v-model="activeTab">
             <v-tab v-bind:key="0" ripple>{{ config.tabDateTitle }}</v-tab>
@@ -27,7 +27,7 @@
                 <v-card flat style="overflow: auto">
                   <v-date-picker
                     v-model="modDate"
-                    v-on:input="(menu = false), emit()"
+                    v-on:change="closingControl(), emit()"
                     v-bind:locale="config.locale"
                     no-title
                   ></v-date-picker>
@@ -35,7 +35,13 @@
               </v-tab-item>
               <v-tab-item v-bind:key="1">
                 <v-card flat>
-                  <v-time-picker v-model="modTime" @change="(menu = false), emit()" format="24hr" landscape></v-time-picker>
+                  <v-time-picker
+                    ref="refTimePicker"
+                    v-model="modTime"
+                    v-on:change="(menu = false), emit()"
+                    format="24hr"
+                    landscape
+                  ></v-time-picker>
                 </v-card>
               </v-tab-item>
             </v-tabs-items>
@@ -43,12 +49,13 @@
         </v-menu>
       </v-flex>
     </v-layout>
-    modFormattedDate {{ modFormattedDate }}
+    formattedDate {{ formattedDate }}
     <br>
     modDate {{ modDate }}
     <br>
     modTime {{ modTime }}
     <br>
+    menu {{ menu }}
   </div>
 </template>
 
@@ -74,6 +81,8 @@ export default {
           tabTimeTitle: "Hora",
           locale: "pt-BR",
           format: "DD/MM/YYYY",
+          icon: "event",
+          closeOnDatePicker: false,
           clearable: false
         };
       }
@@ -81,8 +90,8 @@ export default {
   },
   data: () => ({
     modDate: "",
-    modFormattedDate: "",
     modTime: "00:00",
+    formattedDate: "",
     menu: false,
     readonly: true,
     activeTab: 0
@@ -91,25 +100,38 @@ export default {
     compShow: {
       get: function() {
         const THIS = this;
-        let mdf = this.value ? (THIS.modFormattedDate = moment(new Date(this.value)).format(this.config.format)) : "";
-        let mt = this.value ? (THIS.modTime = moment(new Date(this.value)).format("HH:mm")) : "";
+        let mdf = this.value
+          ? (THIS.formattedDate = moment(new Date(this.value)).format(
+              this.config.format
+            ))
+          : "";
+        let mt = this.value
+          ? (THIS.modTime = moment(new Date(this.value)).format("HH:mm"))
+          : "";
         return mdf + " " + mt;
       },
       set: function() {
         const THIS = this;
         THIS.modDate = null;
         THIS.modTime = "00:00";
-        THIS.modFormattedDate = null;
+        THIS.formattedDate = null;
         this.$emit("input", null);
       }
     }
   },
   watch: {
-    // When computed.compShow.modFormattedDate is changed:
-    modFormattedDate() {
+    // When computed.compShow.formattedDate is changed:
+    formattedDate() {
       return this.value
         ? (this.modDate = moment(new Date(this.value)).format("YYYY-MM-DD"))
         : null;
+    },
+    // Open always on date tab and selected hour
+    menu() {
+      if (!this.menu) {
+        this.activeTab = 0;
+        this.$refs.refTimePicker.selectingHour = true
+      }
     }
   },
   methods: {
@@ -118,6 +140,13 @@ export default {
     },
     stringToMillisecond: function(date, time) {
       return Date.parse(date + " " + time);
+    },
+    closingControl() {
+      if (this.config.closeOnDatePicker === true) {
+        this.menu = false;
+      } else {
+        this.activeTab = 1;
+      }
     }
   }
 };
