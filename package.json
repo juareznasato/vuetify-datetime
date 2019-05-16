@@ -1,6 +1,6 @@
 {
   "name": "vuetify-datetime",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "DateTime component to vuetify.",
   "author": {
     "name": "Juarez Nasato",
@@ -22,12 +22,6 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
-  },
-  "dependencies": {
-    "core-js": "^2.6.5",
-    "moment": "^2.24.0",
-    "vue": "^2.6.10",
-    "vuetify": "^1.5.14"
   },
   "license": "MIT",
   "engines": {
