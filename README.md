@@ -3,14 +3,16 @@
 This component works with v-text-field (vuetify).
 
 v-text-field
-14/05/2019 12:13:14 or others formats.
+14/05/2019 12:13
+14/05/2019 12:13:14 or others date formats.
 
 v-model parent (millisecond)
 1557802800000
 
 ## Features
 
-- Vuetify Dependency
+- Vuetify dependency
+- moment dependency
 - Works fine with Chrome and Firefox. Others not tested.
 
 ## Usage:
@@ -39,8 +41,13 @@ export default {
     value: "1557802800000",
     label: "Date",
     config: {
+      tabDateTitle: "Data", 
+      tabTimeTitle: "Hora",
       locale: "pt-BR",
       format: "DD/MM/YYYY",
+      icon: "event",
+      closeOnDatePicker: false,
+      useSeconds: false,
       clearable: true
     }
   })
@@ -66,8 +73,13 @@ export default {
     value: "1557802800000",
     label: "Date",
     config: {
+      tabDateTitle: "Data", 
+      tabTimeTitle: "Hora",
       locale: "pt-BR",
       format: "DD/MM/YYYY",
+      icon: "event",
+      closeOnDatePicker: false,
+      useSeconds: false,
       clearable: true
     }
   })

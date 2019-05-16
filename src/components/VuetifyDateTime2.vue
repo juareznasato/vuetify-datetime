@@ -38,7 +38,6 @@
                   <v-time-picker
                     ref="refTimePicker"
                     v-model="modTime"
-                    v-bind:use-seconds="config.useSeconds"
                     v-on:change="(menu = false), emit()"
                     format="24hr"
                     landscape
@@ -50,6 +49,13 @@
         </v-menu>
       </v-flex>
     </v-layout>
+    formattedDate {{ formattedDate }}
+    <br>
+    modDate {{ modDate }}
+    <br>
+    modTime {{ modTime }}
+    <br>
+    menu {{ menu }}
   </div>
 </template>
 
@@ -77,7 +83,6 @@ export default {
           format: "DD/MM/YYYY",
           icon: "event",
           closeOnDatePicker: false,
-          useSeconds: false,
           clearable: false
         };
       }
@@ -101,16 +106,14 @@ export default {
             ))
           : "";
         let mt = this.value
-          ? (THIS.modTime = moment(new Date(this.value)).format(
-              this.config.useSeconds ? "HH:mm:ss" : "HH:mm"
-            ))
+          ? (THIS.modTime = moment(new Date(this.value)).format("HH:mm"))
           : "";
         return mdf + " " + mt;
       },
       set: function() {
         const THIS = this;
         THIS.modDate = null;
-        THIS.modTime = this.config.useSeconds ? "00:00:00" : "00:00";
+        THIS.modTime = "00:00";
         THIS.formattedDate = null;
         this.$emit("input", null);
       }
@@ -127,7 +130,7 @@ export default {
     menu() {
       if (!this.menu) {
         this.activeTab = 0;
-        this.$refs.refTimePicker.selectingHour = true;
+        this.$refs.refTimePicker.selectingHour = true
       }
     }
   },

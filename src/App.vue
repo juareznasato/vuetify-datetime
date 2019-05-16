@@ -17,7 +17,7 @@ export default {
     VuetifyDateTime
   },
   data: () => ({
-    value: 1557953700000,
+    value: 1558043415000, //1557953700000, 16/05/2019 18:50:15
     label: "Data",
     config: {
       tabDateTitle: "Data", 
@@ -25,7 +25,8 @@ export default {
       locale: "pt-BR",
       format: "DD/MM/YYYY",
       icon: "event",
-      closeOnDatePicker: true,
+      closeOnDatePicker: false,
+      useSeconds: false,
       clearable: true
     }
   })

@@ -1,7 +1,7 @@
 {
   "name": "vuetify-datetime",
-  "version": "0.1.0",
-  "description": "Simple DateTime component to vuetify.",
+  "version": "0.1.1",
+  "description": "DateTime component to vuetify.",
   "author": {
     "name": "Juarez Nasato",
     "email": "juareznasato@gmail.com"
