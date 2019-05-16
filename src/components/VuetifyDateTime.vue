@@ -1,55 +1,51 @@
 <template>
   <div>
-    <v-layout row>
-      <v-flex xs12 sm6 md4>
-        <v-menu
-          v-model="menu"
-          v-bind:close-on-content-click="false"
-          v-bind:nudge-right="40"
-          transition="scale-transition"
-          data-app="true"
-          offset-y
-          lazy
-        >
-          <v-text-field
-            v-model="compShow"
-            v-bind:readonly="readonly"
-            v-bind:clearable="config.clearable"
-            v-bind:label="label"
-            v-bind:prepend-icon="config.icon"
-            slot="activator"
-          ></v-text-field>
-          <v-tabs color="grey lighten-2" slider-color="cyan" v-model="activeTab">
-            <v-tab v-bind:key="0" ripple>{{ config.tabDateTitle }}</v-tab>
-            <v-tab v-bind:key="1" ripple>{{ config.tabTimeTitle }}</v-tab>
-            <v-tabs-items>
-              <v-tab-item v-bind:key="0">
-                <v-card flat style="overflow: auto">
-                  <v-date-picker
-                    v-model="modDate"
-                    v-on:change="closingControl(), emit()"
-                    v-bind:locale="config.locale"
-                    no-title
-                  ></v-date-picker>
-                </v-card>
-              </v-tab-item>
-              <v-tab-item v-bind:key="1">
-                <v-card flat>
-                  <v-time-picker
-                    ref="refTimePicker"
-                    v-model="modTime"
-                    v-bind:use-seconds="config.useSeconds"
-                    v-on:change="(menu = false), emit()"
-                    format="24hr"
-                    landscape
-                  ></v-time-picker>
-                </v-card>
-              </v-tab-item>
-            </v-tabs-items>
-          </v-tabs>
-        </v-menu>
-      </v-flex>
-    </v-layout>
+    <v-menu
+      v-model="menu"
+      v-bind:close-on-content-click="false"
+      v-bind:nudge-right="40"
+      transition="scale-transition"
+      data-app="true"
+      offset-y
+      lazy
+    >
+      <v-text-field
+        v-model="compShow"
+        v-bind:readonly="readonly"
+        v-bind:clearable="config.clearable"
+        v-bind:label="label"
+        v-bind:prepend-icon="config.icon"
+        slot="activator"
+      ></v-text-field>
+      <v-tabs color="grey lighten-2" slider-color="cyan" v-model="activeTab">
+        <v-tab v-bind:key="0" ripple>{{ config.tabDateTitle }}</v-tab>
+        <v-tab v-bind:key="1" ripple>{{ config.tabTimeTitle }}</v-tab>
+        <v-tabs-items>
+          <v-tab-item v-bind:key="0">
+            <v-card flat style="overflow: auto">
+              <v-date-picker
+                v-model="modDate"
+                v-on:change="closingControl(), emit()"
+                v-bind:locale="config.locale"
+                no-title
+              ></v-date-picker>
+            </v-card>
+          </v-tab-item>
+          <v-tab-item v-bind:key="1">
+            <v-card flat>
+              <v-time-picker
+                ref="refTimePicker"
+                v-model="modTime"
+                v-bind:use-seconds="config.useSeconds"
+                v-on:change="(menu = false), emit()"
+                format="24hr"
+                landscape
+              ></v-time-picker>
+            </v-card>
+          </v-tab-item>
+        </v-tabs-items>
+      </v-tabs>
+    </v-menu>
   </div>
 </template>
 

@@ -4,7 +4,8 @@ This component works with v-text-field (vuetify).
 
 v-text-field
 14/05/2019 12:13
-14/05/2019 12:13:14 or others date formats.
+14/05/2019 12:13:14 (use seconds)
+or others date formats.
 
 v-model parent (millisecond)
 1557802800000
@@ -31,7 +32,7 @@ export default VuetifyDateTime;
 Parent component:
 <template>
   <div>
-    <VuetifyDateTime v-model="value" v-bind:label="label" v-bind:config="config"/>
+    <vuetify-datetime v-model="value" v-bind:label="label" v-bind:config="config"/>
     v-model parent: {{ value }}
   </div>
 </template>
