@@ -1,6 +1,6 @@
 {
   "name": "vuetify-datetime",
-  "version": "0.1.5",
+  "version": "1.0.0",
   "description": "DateTime component to vuetify.",
   "author": {
     "name": "Juarez Nasato",
@@ -10,6 +10,8 @@
     "vuejs",
     "vuetify",
     "v-text-field",
+    "v-date-picker",
+    "v-time-picker",
     "datetime",
     "millisecond"
   ],

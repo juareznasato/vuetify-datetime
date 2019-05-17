@@ -25,7 +25,8 @@ export default {
       locale: "pt-BR",
       format: "DD/MM/YYYY",
       icon: "event",
-      closeOnDatePicker: false,
+      iconTime: "av_timer",
+      closeOnDateClick: true,
       useSeconds: false,
       clearable: true
     }

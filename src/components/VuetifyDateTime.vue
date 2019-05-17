@@ -15,6 +15,9 @@
         v-bind:clearable="config.clearable"
         v-bind:label="label"
         v-bind:prepend-icon="config.icon"
+        v-bind:append-icon="config.iconTime"
+        v-on:click:append="menu=true, activeTab=1"
+        v-on:click:clear="menu=false"
         slot="activator"
       ></v-text-field>
       <v-tabs color="grey lighten-2" slider-color="cyan" v-model="activeTab">
@@ -40,6 +43,7 @@
                 v-on:change="(menu = false), emit()"
                 format="24hr"
                 landscape
+                v-if="formattedDate !== null && formattedDate !== '' "
               ></v-time-picker>
             </v-card>
           </v-tab-item>
@@ -72,7 +76,8 @@ export default {
           locale: "pt-BR",
           format: "DD/MM/YYYY",
           icon: "event",
-          closeOnDatePicker: false,
+          iconTime: "av_timer",
+          closeOnDateClick: false,
           useSeconds: false,
           clearable: false
         };
@@ -123,7 +128,9 @@ export default {
     menu() {
       if (!this.menu) {
         this.activeTab = 0;
-        this.$refs.refTimePicker.selectingHour = true;
+        if (this.$refs.refTimePicker) {
+          this.$refs.refTimePicker.selectingHour = true;
+        }
       }
     }
   },
@@ -135,7 +142,7 @@ export default {
       return Date.parse(date + " " + time);
     },
     closingControl() {
-      if (this.config.closeOnDatePicker === true) {
+      if (this.config.closeOnDateClick === true) {
         this.menu = false;
       } else {
         this.activeTab = 1;

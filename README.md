@@ -1,24 +1,27 @@
 # vuetify-datetime
 
-This component works with v-text-field (vuetify).
+This component works with vuetify. It uses v-text-field, v-date-picker and v-timer-picker.
 
-v-text-field
-14/05/2019 12:13
-14/05/2019 12:13:14 (use seconds)
-or others date formats.
+- v-text-field
+- 14/05/2019 12:13
+- 14/05/2019 12:13:14 (use seconds)
+- Locale allows you to define other date formats.
 
-v-model parent (millisecond)
+v-model parent (input and output in milliseconds)
 1557802800000
+
+if you want a simple date component without time format, please, try this:
+https://github.com/juareznasato/vuetify-date.git
 
 ## Features
 
-- Vuetify dependency
-- moment dependency
+- Vuetify dependency.
+- moment dependency.
 - Works fine with Chrome and Firefox. Others not tested.
 
-## Usage:
+## Usage
 
-### Globally
+### Globally:
 ```
 Install:
 $ npm install vuetify-datetime --save
@@ -42,13 +45,14 @@ export default {
     value: "1557802800000",
     label: "Date",
     config: {
-      tabDateTitle: "Data", 
+      tabDateTitle: "Data",
       tabTimeTitle: "Hora",
       locale: "pt-BR",
-      format: "DD/MM/YYYY",
-      icon: "event",
-      closeOnDatePicker: false,
-      useSeconds: false,
+      format: "DD/MM/YYYY",     - Date format only. Do not include the time format here.
+      icon: "event",            - "" to disable.
+      iconTime: "av_timer",     - "" to disable. Clicking on this icon, will open the time window.
+      closeOnDateClick: false,  - You can define what happens after clicking the date picker: Close the window or go to the timer picker.
+      useSeconds: false,        - Set true to working with seconds as well.
       clearable: true
     }
   })
@@ -56,7 +60,7 @@ export default {
 </script>
 
 ```
-### As component
+### As component:
 ```
 <template>
   <div>
@@ -77,10 +81,11 @@ export default {
       tabDateTitle: "Data", 
       tabTimeTitle: "Hora",
       locale: "pt-BR",
-      format: "DD/MM/YYYY",
-      icon: "event",
-      closeOnDatePicker: false,
-      useSeconds: false,
+      format: "DD/MM/YYYY",     - Date format only. Do not include the time format here.
+      icon: "event",            - "" to disable.
+      iconTime: "av_timer",     - "" to disable. Clicking on this icon, will open the time window.
+      closeOnDateClick: false,  - You can define what happens after clicking the date picker: Close the window or go to the timer picker.
+      useSeconds: false,        - Set true to working with seconds as well.
       clearable: true
     }
   })
