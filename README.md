@@ -11,7 +11,8 @@ v-model parent (input and output in milliseconds)
 1557802800000
 
 if you want a simple date component without time format, please, try this:
-https://github.com/juareznasato/vuetify-date.git
+<p><a href="https://github.com/juareznasato/vuetify-date.git" target="_blank">vuetify-date</a></p>
+
 
 ## Features
 
@@ -20,9 +21,9 @@ https://github.com/juareznasato/vuetify-date.git
 - Works fine with Chrome and Firefox. Others not tested.
 
 ## Links
-<p><a href="https://codesandbox.io/s/vuetifydatetime-v450e" rel="nofollow">See DEMO here</a></p>
-<p><a href="https://github.com/juareznasato/vuetify-datetime" rel="nofollow">GitHub</a></p>
-<p><a href="https://www.npmjs.com/package/vuetify-datetime" rel="nofollow">npm</a></p>
+<p><a href="https://codesandbox.io/s/vuetifydatetime-v450e" target="_blank">See DEMO here</a></p>
+<p><a href="https://github.com/juareznasato/vuetify-datetime" target="_blank">GitHub</a></p>
+<p><a href="https://www.npmjs.com/package/vuetify-datetime" target="_blank">npm</a></p>
 
 ## Usage
 
