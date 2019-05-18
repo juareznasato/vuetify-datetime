@@ -24,6 +24,7 @@ if you want a simple date component without time format, please, try this:
 <p><a href="https://codesandbox.io/s/vuetifydatetime-v450e" target="_blank">See DEMO here</a></p>
 <p><a href="https://github.com/juareznasato/vuetify-datetime" target="_blank">GitHub</a></p>
 <p><a href="https://www.npmjs.com/package/vuetify-datetime" target="_blank">npm</a></p>
+<a href="https://www.w3schools.com" target="_blank">Visit W3Schools.com!</a> 
 
 ## Usage
 
