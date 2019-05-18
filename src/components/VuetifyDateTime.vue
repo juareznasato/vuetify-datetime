@@ -43,7 +43,7 @@
                 v-on:change="(menu = false), emit()"
                 format="24hr"
                 landscape
-                v-if="formattedDate !== null && formattedDate !== '' "
+                v-bind:disabled="formattedDate === null || formattedDate === '' "
               ></v-time-picker>
             </v-card>
           </v-tab-item>

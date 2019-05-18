@@ -26,6 +26,9 @@ https://github.com/juareznasato/vuetify-date.git
 Install:
 $ npm install vuetify-datetime --save
 
+To upgrade to version 1.X.X you must remove version 0.X.X, before installing.
+$ npm remove vuetify-datetime
+
 Register component:
 import Vue from "vue";
 import VuetifyDateTime from "vuetify-datetime";

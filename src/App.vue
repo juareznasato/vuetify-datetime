@@ -26,7 +26,7 @@ export default {
       format: "DD/MM/YYYY",
       icon: "event",
       iconTime: "av_timer",
-      closeOnDateClick: true,
+      closeOnDateClick: false,
       useSeconds: false,
       clearable: true
     }
