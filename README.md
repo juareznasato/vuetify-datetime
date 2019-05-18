@@ -19,6 +19,11 @@ https://github.com/juareznasato/vuetify-date.git
 - moment dependency.
 - Works fine with Chrome and Firefox. Others not tested.
 
+## Links
+<p><a href="https://codesandbox.io/s/vuetifydatetime-v450e" rel="nofollow">See DEMO here</a></p>
+<p><a href="https://github.com/juareznasato/vuetify-datetime" rel="nofollow">GitHub</a></p>
+<p><a href="https://www.npmjs.com/package/vuetify-datetime" rel="nofollow">npm</a></p>
+
 ## Usage
 
 ### Globally:
