@@ -2,12 +2,11 @@
 
 This component works with vuetify. It uses v-text-field, v-date-picker and v-timer-picker.
 
-- v-text-field
 - 14/05/2019 12:13
 - 14/05/2019 12:13:14 (use seconds)
 - Locale allows you to define other date formats.
 
-v-model parent (input and output in milliseconds)
+v-model parent (milliseconds)
 1557802800000
 
 if you want a simple date component without time format, please, try this:
@@ -36,10 +35,13 @@ To upgrade to version 1.X.X you must remove version 0.X.X, before installing.
 $ npm remove vuetify-datetime
 
 Register component:
+1- Create a src/vuetify-datetime.js file with the following content:
 import Vue from "vue";
 import VuetifyDateTime from "vuetify-datetime";
 Vue.use(VuetifyDateTime);
 export default VuetifyDateTime;
+2- Add to src/mains.js file:
+import "./modules/vuetify-datetime.js";
 
 Parent component:
 <template>
