@@ -35,7 +35,7 @@ To upgrade to version 1.X.X you must remove version 0.X.X, before installing.
 $ npm remove vuetify-datetime
 
 Register component:
-1- Create a src/vuetify-datetime.js file with the following content:
+1- Create a src/modules/vuetify-datetime.js file with the following content:
 import Vue from "vue";
 import VuetifyDateTime from "vuetify-datetime";
 Vue.use(VuetifyDateTime);
