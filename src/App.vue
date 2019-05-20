@@ -2,11 +2,11 @@
   <v-app id="inspire">
     <v-toolbar dark app fixed clipped-left color="cyan"></v-toolbar>
     <v-content>
-      <VuetifyDateTime v-model="value1" v-bind:label="label1" v-bind:config="config1" />
+      <VuetifyDateTime v-model="value1" v-bind:label="label1" v-bind:options="options1" />
       Parent v-model milliseconds: {{ value1 }}<br><br>
-      <VuetifyDateTime v-model="value2" v-bind:label="label2" v-bind:config="config2" />
+      <VuetifyDateTime v-model="value2" v-bind:label="label2" v-bind:options="options2" />
       Parent v-model milliseconds: {{ value2 }}<br><br>
-      <VuetifyDateTime v-model="value3" v-bind:label="label3" v-bind:config="config3" />
+      <VuetifyDateTime v-model="value3" v-bind:label="label3" v-bind:options="options3" />
       Parent v-model milliseconds: {{ value3 }}<br><br>
     </v-content>
   </v-app>
@@ -23,7 +23,7 @@ export default {
   data: () => ({
     value1: 1558220700000,
     label1: "Data Hora",
-    config1: {
+    options1: {
       tabDateTitle: "Data", 
       tabTimeTitle: "Hora",
       locale: "pt-BR",
@@ -36,7 +36,7 @@ export default {
     },
     value2: 1558220700000,
     label2: "Date Hora",
-    config2: {
+    options2: {
       tabDateTitle: "Data", 
       tabTimeTitle: "Hora",
       locale: "pt-BR",
@@ -49,7 +49,7 @@ export default {
     },
     value3: 1558220710000,
     label3: "Date Time",
-    config3: {
+    options3: {
       tabDateTitle: "Date", 
       tabTimeTitle: "Time",
       locale: "en-US",

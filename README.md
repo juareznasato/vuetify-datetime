@@ -20,7 +20,7 @@ if you want a simple date component without time format, please, try this:
 - Works fine with Chrome and Firefox. Others not tested.
 
 ## Links
-<p><a href="https://codesandbox.io/s/vuetifydatetime-v450e" target="_blank">See DEMO here</a></p>
+<p><a href="https://v450e.codesandbox.io/" target="_blank">See DEMO here</a></p>
 <p><a href="https://github.com/juareznasato/vuetify-datetime" target="_blank">GitHub</a></p>
 <p><a href="https://www.npmjs.com/package/vuetify-datetime" target="_blank">npm</a></p>
 
@@ -46,7 +46,7 @@ import "./modules/vuetify-datetime.js";
 Parent component:
 <template>
   <div>
-    <vuetify-datetime v-model="value" v-bind:label="label" v-bind:config="config"/>
+    <vuetify-datetime v-model="value" v-bind:label="label" v-bind:options="options"/>
     v-model parent: {{ value }}
   </div>
 </template>
@@ -55,7 +55,7 @@ export default {
   data: () => ({
     value: "1557802800000",
     label: "Date",
-    config: {
+    options: {
       tabDateTitle: "Data",
       tabTimeTitle: "Hora",
       locale: "pt-BR",
@@ -75,7 +75,7 @@ export default {
 ```
 <template>
   <div>
-    <VuetifyDateTime v-model="value" v-bind:label="label" v-bind:config="config"/>
+    <VuetifyDateTime v-model="value" v-bind:label="label" v-bind:options="options"/>
     v-model parent: {{ value }}
   </div>
 </template>
@@ -88,7 +88,7 @@ export default {
   data: () => ({
     value: "1557802800000",
     label: "Date",
-    config: {
+    options: {
       tabDateTitle: "Data", 
       tabTimeTitle: "Hora",
       locale: "pt-BR",

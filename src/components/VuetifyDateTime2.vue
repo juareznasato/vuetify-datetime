@@ -14,21 +14,21 @@
           <v-text-field
             v-model="compShow"
             v-bind:readonly="readonly"
-            v-bind:clearable="config.clearable"
+            v-bind:clearable="options.clearable"
             v-bind:label="label"
-            v-bind:prepend-icon="config.icon"
+            v-bind:prepend-icon="options.icon"
             slot="activator"
           ></v-text-field>
           <v-tabs color="grey lighten-2" slider-color="cyan" v-model="activeTab">
-            <v-tab v-bind:key="0" ripple>{{ config.tabDateTitle }}</v-tab>
-            <v-tab v-bind:key="1" ripple>{{ config.tabTimeTitle }}</v-tab>
+            <v-tab v-bind:key="0" ripple>{{ options.tabDateTitle }}</v-tab>
+            <v-tab v-bind:key="1" ripple>{{ options.tabTimeTitle }}</v-tab>
             <v-tabs-items>
               <v-tab-item v-bind:key="0">
                 <v-card flat style="overflow: auto">
                   <v-date-picker
                     v-model="modDate"
                     v-on:change="closingControl(), emit()"
-                    v-bind:locale="config.locale"
+                    v-bind:locale="options.locale"
                     no-title
                   ></v-date-picker>
                 </v-card>
@@ -73,7 +73,7 @@ export default {
       type: String,
       default: "Label"
     },
-    config: {
+    options: {
       type: Object,
       default: function() {
         return {
@@ -102,7 +102,7 @@ export default {
         const THIS = this;
         let mdf = this.value
           ? (THIS.formattedDate = moment(new Date(this.value)).format(
-              this.config.format
+              this.options.format
             ))
           : "";
         let mt = this.value
@@ -142,7 +142,7 @@ export default {
       return Date.parse(date + " " + time);
     },
     closingControl() {
-      if (this.config.closeOnDatePicker === true) {
+      if (this.options.closeOnDatePicker === true) {
         this.menu = false;
       } else {
         this.activeTab = 1;

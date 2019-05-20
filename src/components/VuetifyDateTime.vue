@@ -12,24 +12,24 @@
       <v-text-field
         v-model="compShow"
         v-bind:readonly="readonly"
-        v-bind:clearable="config.clearable"
+        v-bind:clearable="options.clearable"
         v-bind:label="label"
-        v-bind:prepend-icon="config.icon"
-        v-bind:append-icon="config.iconTime"
+        v-bind:prepend-icon="options.icon"
+        v-bind:append-icon="options.iconTime"
         v-on:click:append="menu=true, activeTab=1"
         v-on:click:clear="menu=false"
         slot="activator"
       ></v-text-field>
       <v-tabs color="grey lighten-2" slider-color="cyan" v-model="activeTab">
-        <v-tab v-bind:key="0" ripple>{{ config.tabDateTitle }}</v-tab>
-        <v-tab v-bind:key="1" ripple>{{ config.tabTimeTitle }}</v-tab>
+        <v-tab v-bind:key="0" ripple>{{ options.tabDateTitle }}</v-tab>
+        <v-tab v-bind:key="1" ripple>{{ options.tabTimeTitle }}</v-tab>
         <v-tabs-items>
           <v-tab-item v-bind:key="0">
             <v-card flat style="overflow: auto">
               <v-date-picker
                 v-model="modDate"
                 v-on:change="closingControl(), emit()"
-                v-bind:locale="config.locale"
+                v-bind:locale="options.locale"
                 no-title
               ></v-date-picker>
             </v-card>
@@ -39,7 +39,7 @@
               <v-time-picker
                 ref="refTimePicker"
                 v-model="modTime"
-                v-bind:use-seconds="config.useSeconds"
+                v-bind:use-seconds="options.useSeconds"
                 v-on:change="(menu = false), emit()"
                 format="24hr"
                 landscape
@@ -67,7 +67,7 @@ export default {
       type: String,
       default: "Label"
     },
-    config: {
+    options: {
       type: Object,
       default: function() {
         return {
@@ -98,12 +98,12 @@ export default {
         const THIS = this;
         let mdf = this.value
           ? (THIS.formattedDate = moment(new Date(this.value)).format(
-              this.config.format
+              this.options.format
             ))
           : "";
         let mt = this.value
           ? (THIS.modTime = moment(new Date(this.value)).format(
-              this.config.useSeconds ? "HH:mm:ss" : "HH:mm"
+              this.options.useSeconds ? "HH:mm:ss" : "HH:mm"
             ))
           : "";
         return mdf + " " + mt;
@@ -111,7 +111,7 @@ export default {
       set: function() {
         const THIS = this;
         THIS.modDate = null;
-        THIS.modTime = this.config.useSeconds ? "00:00:00" : "00:00";
+        THIS.modTime = this.options.useSeconds ? "00:00:00" : "00:00";
         THIS.formattedDate = null;
         this.$emit("input", null);
       }
@@ -142,7 +142,7 @@ export default {
       return Date.parse(date + " " + time);
     },
     closingControl() {
-      if (this.config.closeOnDateClick === true) {
+      if (this.options.closeOnDateClick === true) {
         this.menu = false;
       } else {
         this.activeTab = 1;
