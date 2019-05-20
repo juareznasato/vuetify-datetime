@@ -20,7 +20,7 @@ if you want a simple date component without time format, please, try this:
 - Works fine with Chrome and Firefox. Others not tested.
 
 ## Links
-<p><a href="https://v450e.codesandbox.io/" rel="nofollow">See DEMO here</a></p>
+<p><a href="https://v450e.codesandbox.io/">See DEMO here</a></p>
 <p><a href="https://github.com/juareznasato/vuetify-datetime" target="_blank">GitHub</a></p>
 <p><a href="https://www.npmjs.com/package/vuetify-datetime" target="_blank">npm</a></p>
 
