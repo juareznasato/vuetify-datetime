@@ -17,7 +17,7 @@ if you want a simple date component without time format, please, try this:
 - moment
 
 ## Links
-<p><a href="https://v450e.codesandbox.io/" target="_blank">See DEMO here</a></p>
+<p><a href="https://v450e.codesandbox.io/">See DEMO here</a></p>
 <p><a href="https://github.com/juareznasato/vuetify-datetime" target="_blank">GitHub</a></p>
 <p><a href="https://www.npmjs.com/package/vuetify-datetime" target="_blank">npm</a></p>
 
