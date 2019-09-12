@@ -6,7 +6,7 @@
     "name": "Juarez Nasato",
     "email": "juareznasato@gmail.com"
   },
-  "private": true,
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
