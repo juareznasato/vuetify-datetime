@@ -64,6 +64,7 @@ export default {
       format: "DD/MM/YYYY",
       icon: "",
       iconTime: "av_timer",
+      backgroundColor: "blue",
       closeOnDateClick: true,
       useSeconds: false,
       clearable: false
@@ -77,6 +78,7 @@ export default {
       format: "YYYY-MM-DD",
       icon: "event",
       iconTime: "",
+      backgroundColor: "blue",
       closeOnDateClick: false,
       useSeconds: true,
       clearable: true
