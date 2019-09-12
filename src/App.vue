@@ -50,6 +50,7 @@ export default {
       format: "DD/MM/YYYY",
       icon: "event",
       iconTime: "",
+      backgroundColor: "blue",
       closeOnDateClick: false,
       useSeconds: false,
       clearable: false

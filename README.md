@@ -54,6 +54,7 @@ export default {
       format: "DD/MM/YYYY",     - Date format only. Do not include the time format here.
       icon: "event",            - "" to disable.
       iconTime: "av_timer",     - "" to disable. Clicking on this icon, will open the time window.
+      backgroundColor: "blue",
       closeOnDateClick: false,  - You can define what happens after clicking the date picker: Close the window or go to the timer picker.
       useSeconds: false,        - Set true to working with seconds as well.
       clearable: true

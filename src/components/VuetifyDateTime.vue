@@ -1,5 +1,6 @@
 <template>
   <div>
+          {{options.icon}}
     <v-menu
       v-model="menu"
       v-bind:close-on-content-click="false"
@@ -22,13 +23,13 @@
           v-on="on"
         ></v-text-field>
       </template>
-      <v-tabs dark class="elevation-2" background-color="cyan" v-model="activeTab">
+      <v-tabs dark class="elevation-2" v-bind:background-color="options.backgroundColor" v-model="activeTab">
         <v-tab v-bind:key="0">
-          <v-icon left>mdi-account</v-icon>
+          <v-icon left>mdi-calendar-outline</v-icon>
           {{ options.tabDateTitle }}
         </v-tab>
         <v-tab v-bind:key="1">
-          <v-icon left>account_balance</v-icon>
+          <v-icon left>mdi-calendar-clock</v-icon>
           {{ options.tabTimeTitle }}
         </v-tab>
         <v-tab-item v-bind:key="0">
@@ -48,6 +49,7 @@
               ref="refTimePicker"
               format="24hr"
               v-model="modTime"
+              v-bind:color="options.backgroundColor"
               v-bind:use-seconds="options.useSeconds"
               v-on:change="(menu = false), emit()"
               v-bind:disabled="formattedDate === null || formattedDate === '' "
@@ -83,6 +85,7 @@ export default {
           format: "DD/MM/YYYY",
           icon: "event",
           iconTime: "av_timer",
+          backgroundColor: "cyan",
           closeOnDateClick: false,
           useSeconds: false,
           clearable: false
