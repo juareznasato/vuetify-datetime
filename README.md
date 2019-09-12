@@ -13,7 +13,7 @@ if you want a simple date component without time format, please, try this:
 
 ## Dependency
 - VueJS
-- Vuetify
+- Vuetify 2.x
 - moment
 
 ## Links
@@ -26,14 +26,14 @@ if you want a simple date component without time format, please, try this:
 $ npm install vuetify-datetime --save
 
 Register component:
-1- Create a src/modules/vuetify-datetime.js file with the following content:
+1- Create a src/plugins/vuetify-datetime.js file with the following content:
 import Vue from "vue";
 import VuetifyDateTime from "vuetify-datetime";
 Vue.use(VuetifyDateTime);
 export default VuetifyDateTime;
 
 2- Add to src/mains.js file:
-import "./modules/vuetify-datetime.js";
+import "./plugins/vuetify-datetime.js";
 
 Parent component:
 <template>
@@ -61,4 +61,3 @@ export default {
   })
 };
 </script>
-
