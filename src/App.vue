@@ -1,7 +1,7 @@
 <template>
   <v-app id="inspire">
     <v-card-title>
-      <v-toolbar flat class="elevation-2" color="cyan">
+      <v-toolbar flat dark class="elevation-2" color="cyan">
         <v-toolbar-title>vuetify-datetime</v-toolbar-title>
       </v-toolbar>
     </v-card-title>
@@ -53,7 +53,8 @@ export default {
       backgroundColor: "blue",
       closeOnDateClick: false,
       useSeconds: false,
-      clearable: false
+      clearable: false,
+      outlined: true
     },
     value2: 1558220700000,
     label2: "Date Hora",
@@ -67,7 +68,8 @@ export default {
       backgroundColor: "blue",
       closeOnDateClick: true,
       useSeconds: false,
-      clearable: false
+      clearable: false,
+      outlined: true
     },
     value3: 1558220710000,
     label3: "Date Time",
@@ -81,7 +83,8 @@ export default {
       backgroundColor: "blue",
       closeOnDateClick: false,
       useSeconds: true,
-      clearable: true
+      clearable: true,
+      outlined: false
     }
   })
 };

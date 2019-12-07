@@ -1,6 +1,5 @@
 <template>
   <div>
-          {{options.icon}}
     <v-menu
       v-model="menu"
       v-bind:close-on-content-click="false"
@@ -15,6 +14,7 @@
           v-model="compShow"
           v-bind:readonly="readonly"
           v-bind:clearable="options.clearable"
+          v-bind:outlined="options.outlined"
           v-bind:label="label"
           v-bind:prepend-icon="options.icon"
           v-bind:append-icon="options.iconTime"
@@ -88,7 +88,8 @@ export default {
           backgroundColor: "cyan",
           closeOnDateClick: false,
           useSeconds: false,
-          clearable: false
+          clearable: false,
+          outlined: false
         };
       }
     }
