@@ -11,11 +11,6 @@ v-model: (milliseconds)
 if you want a simple date component without time format, please, try this:
 <p><a href="https://github.com/juareznasato/vuetify-date.git" target="_blank">vuetify-date</a></p>
 
-## Dependency
-- VueJS
-- Vuetify 2.x
-- moment
-
 ## Links
 <p><a href="https://v450e.codesandbox.io/">See DEMO here</a></p>
 <p><a href="https://github.com/juareznasato/vuetify-datetime" target="_blank">GitHub</a></p>
@@ -57,7 +52,8 @@ export default {
       backgroundColor: "blue",
       closeOnDateClick: false,  - You can define what happens after clicking the date picker: Close the window or go to the timer picker.
       useSeconds: false,        - Set true to working with seconds as well.
-      clearable: true
+      clearable: true,
+      outlined: false,
     }
   })
 };
